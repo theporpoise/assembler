@@ -2,9 +2,8 @@
 #include <string.h>
 #include <ctype.h>
 
-// count the line you are on
-// change from addresses to 1's and 0's
-// chnage from instructions to 1's and 0's
+// removes line comments and everything else on that line
+// removes newlines with nothing on the line.
 
 main()
 {

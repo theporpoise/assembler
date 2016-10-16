@@ -14,41 +14,44 @@ main()
 
     while ((c = getchar()) != EOF)
     {
-        
         if(c == '\n' && pre == '\n')
         {
             comment = 0;
-        }else if (c == '\n' && comment == 1)
-        {
-            comment = 0;
-        }else if(c == '\n')
-        {
-            comment = 0;
-            putchar(c);
-        }else if(c == '/' && pre == '/')
-        {
-            pre=c;
-            comment = 1;
-        }else if(comment == 1)
-        {
-            pre=c;
-        }else if(c == '/')
+            pre = c;
+        }
+        else if(c == '\n' && comment == 1)
         {
             pre = c;
-        }else if(pre == '/')
+            comment = 0;
+        }
+        else if(c == '\n')
+        {
+            pre = c;
+            putchar(c);
+            comment = 0;
+        }
+        else if(comment == 1)
+        {
+            pre = c;
+        }
+        else if(pre == '/' && c == '/')
+        {
+            comment = 1;
+            pre = c;
+        }
+        else if(c == '/')
+        {
+            pre = c;
+        }
+        else if(pre =='/')
         {
             putchar(pre);
             putchar(c);
-        }else
-        {
+            pre = c;
+        } 
+        else
             putchar(c);
-        }
-
-        pre = c;
-
     }
-
-//    printf("you got to the end of the file!\n");
     return 0;
 }
 

@@ -1,13 +1,13 @@
 CFLAGS=-Wall -g
 
-all: clean create see
+all: create
 
 clean:
 	rm -f b.hack
 
 create:
 	cc assembler.c 
-	./a.out <Add.asm >b.hack
+	./a.out
 
 see:
 	cat b.hack
